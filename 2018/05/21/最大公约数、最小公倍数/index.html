@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="ciwest">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="最大公约数、最小公倍数"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="「Stay hungry. Stay foolish.」"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://yoursite.com"/>
+  
+    <link rel="alternate" href="/atom.xml" title="「Stay hungry. Stay foolish.」" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.jpg">
+  
+
+  <!-- Site Title -->
+  <title>「Stay hungry. Stay foolish.」</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/ocean-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">最大公约数、最小公倍数</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/chenluoluo">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:1789062317@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By ciwest</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-05-21</span>
+            <span class="time">21:16:11</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/算法/">算法</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/数学/">#数学</a> <a class="tag" href="/tags/算法/">#算法</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h1 id="最大公约数、最小公倍数"><a href="#最大公约数、最小公倍数" class="headerlink" title="最大公约数、最小公倍数"></a>最大公约数、最小公倍数</h1><p><strong>最大公约数(GCD)：</strong>所有公共因子的乘积<br><strong>最小公倍数(LCM)：</strong>所有因子的乘积</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> * 最大公倍数和最小公约数的关系</span><br><span class="line"> */</span><br><span class="line">int LCM(int a, int b) </span><br><span class="line">&#123;</span><br><span class="line">	int gcd = GCD(a, b);</span><br><span class="line">	return a * b / gcd;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="公约数的性质"><a href="#公约数的性质" class="headerlink" title="公约数的性质"></a>公约数的性质</h2><p><strong>如果b是A和B的公约数，那么：</strong></p>
+<ol>
+<li>b也是A+B的约数</li>
+<li>b也是A-B的约数</li>
+<li>对于任意整数x、y，b也是Ax+By的约数</li>
+<li>根据上一条性质，r = A - kB = A mod B，所以A mod B也是A+B的约数，mod是求余运算，即b是A,B,A mod B的公约数</li>
+</ol>
+<p>公式：<br><strong>gcd(A,B) = gcd(B,A) = gcd(A,A+B) = gcd(A,A-B) = gcd(A,Ax+By) = gcd(A,A mod B)</strong></p>
+<h2 id="求最大公约数的方法"><a href="#求最大公约数的方法" class="headerlink" title="求最大公约数的方法"></a>求最大公约数的方法</h2><h3 id="分解因式法"><a href="#分解因式法" class="headerlink" title="分解因式法"></a>分解因式法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> * 分解因式法</span><br><span class="line"> * 法代码冗长，性能低下</span><br><span class="line"> */</span><br><span class="line">int GCD(int a, int b) </span><br><span class="line">&#123;</span><br><span class="line">	assert(a != 0);</span><br><span class="line">	assert(b != 0);</span><br><span class="line">	int min = a &lt; b ? a : b;</span><br><span class="line">	int accumulate = 1;</span><br><span class="line"></span><br><span class="line">	// 以2进行分解，如果0进来这里就死循环了</span><br><span class="line">	while ((a &amp; 1) == 0 &amp;&amp; (b &amp; 1) == 0) </span><br><span class="line">	&#123;</span><br><span class="line">		accumulate *= 2;</span><br><span class="line">		a &gt;&gt;= 1;</span><br><span class="line">		b &gt;&gt;= 1;</span><br><span class="line">	&#125;</span><br><span class="line">	// 以大于等于3的数进行分解</span><br><span class="line">	for (int i = 3; i &lt;= min; i += 2) </span><br><span class="line">	&#123;</span><br><span class="line">		while ((a % i) == 0 &amp;&amp; (b % i) == 0) </span><br><span class="line">		&#123;</span><br><span class="line">			accumulate *= i;</span><br><span class="line">			a /= i;</span><br><span class="line">			b /= i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	// 将所有公因子的乘积作为返回值</span><br><span class="line">	return accumulate;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="辗转相除法-欧几里得算法"><a href="#辗转相除法-欧几里得算法" class="headerlink" title="辗转相除法(欧几里得算法)"></a>辗转相除法(欧几里得算法)</h3><p><strong>公式：gcd(A, B) = gcd(B, A mod B)   其中:A &gt; B</strong></p>
+<h4 id="证明："><a href="#证明：" class="headerlink" title="证明："></a>证明：</h4><blockquote>
+<p>不妨设A &gt; B，设A和B的最大公约数为X，所以 A=aX，B=bX，其中a和b都为正整数且a&gt;b。<br>A除以B的余数： R = A - k*B，其中k为正整数是A除以B的商，所以：<br>        <strong>R=A−k∗B=aX−kbX=(a−kb)X</strong><br>因为a、k、b均为正整数，所以R也能被X整除<br>即A、B、R的公约数相同，所以有gcd(A，B) = gcd(B，A mod B)</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> * 辗转相除法(欧几里得算法)</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">/* 递归 */</span><br><span class="line">int GCD(int a, int b) </span><br><span class="line">&#123;</span><br><span class="line">	return b == 0 ? a : GCD(b, a%b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*循环*/</span><br><span class="line">int GCD(int a, int b) </span><br><span class="line">&#123;</span><br><span class="line">	int r;</span><br><span class="line">	while (b != 0) </span><br><span class="line">	&#123;</span><br><span class="line">		r = a % b; a = b; b = r;</span><br><span class="line">	&#125;</span><br><span class="line">	return a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="更相减损术"><a href="#更相减损术" class="headerlink" title="更相减损术"></a>更相减损术</h3><blockquote>
+<p><strong>可半者半之，不可半者，副置分母、子之数，以少减多，更相减损，求其等也。以等数约之。</strong></p>
+</blockquote>
+<p>用白话来说就是：</p>
+<ol>
+<li>任意给定两个正整数；判断它们是否都是偶数。若是，则用2约简；若不是则执行第二步。</li>
+<li>以较大的数减较小的数，接着把所得的差与较小的数比较，并以大数减小数。继续这个操作，直到所得的减数和差相等为止。</li>
+</ol>
+<p><strong>如果A &gt; B，则 gcd(A,B) = gcd(B,A-B)</strong><br><strong>如果A &lt; B，则 gcd(A,B) = gcd(A,B-A)</strong></p>
+<h4 id="证明：-1"><a href="#证明：-1" class="headerlink" title="证明："></a>证明：</h4><blockquote>
+<p>不妨设A&gt;B，设A和B的最大公约数为X，所以 A=aX，B=bx，其中a和b都为正整数，切a&gt;b。<br>C = A-B，则有：<br>        <strong>C=aX−bX=(a−b)X</strong><br>因为a和b均为正整数，所以C也能被X整除，即A、B、C最大公约数均为X<br>所以gcd(A,B) = gcd(B,A-B)</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> * 更相减损术</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">int GCD(int a, int b) </span><br><span class="line">&#123;</span><br><span class="line">	while (a != b) </span><br><span class="line">	&#123;</span><br><span class="line">		if (a &gt; b)</span><br><span class="line">			a = a - b;</span><br><span class="line">		else</span><br><span class="line">			b = b - a;</span><br><span class="line">	&#125;</span><br><span class="line">	return a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>辗转相除法：</strong>以除法为主，计算次数相对较少，结果以相除余数为0则得到。<br><strong>更相减损术：</strong>以减法为主，计算次数相对较多，结果以减数与差相等而得到。</p>
+<p>#算法#</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
